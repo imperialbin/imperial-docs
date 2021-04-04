@@ -1,78 +1,82 @@
-# Built-In Components
+# POST /document
 
-Some helpful built-in components from `nextra-theme-docs`.
+Post/create a document by IMPERIAL's API
 
-## Callout
+## The request
 
 import Callout from 'nextra-theme-docs/callout'
 
-#### Example
+#### Something to keep in mind
+
+<Callout>You only get 30 requests every 20 seconds.</Callout>
 
 <Callout>
-  A **callout** is a short piece of text intended to attract attention.
+  If your request isn't authorized, it will ignore ALL settings and do the bare
+  minimum.
 </Callout>
 
-<Callout emoji="🦤">
-  The **dodo** is an extinct flightless bird that was endemic to the island of Mauritius, east of Madagascar in the Indian Ocean.
-</Callout>
+#### The body
 
-#### Usage
+```json
+code: "" // Must be a string and is a requirement whilst requesting
 
-```mdx
-import Callout from 'nextra-theme-docs/callout'
+longerUrls: false // Must be a boolean. (Default false)
 
-<Callout emoji="🦤">
-  The **dodo** is an extinct flightless bird.
-</Callout>
+imageEmbed: false //Must be a boolean. (Default false)
+
+instantDelete: false //Must be a boolean. (Default false)
+
+encrypted: false // Must be a boolean. (Default false)
+
+password: "" // Must be a string. (Default if encrypted is true: Randomly generated password. Default if encrypted is false: null)
+
+expiration: 5 // Must be a number. (Default: 5)
+
+editorArray: ['devlooskie'] // Must be an Array of VALID IMPERIAL usernames. (Default: [])
 ```
 
-## Bleed
+#### Headers
 
-import Bleed from 'nextra-theme-docs/bleed'
+```json
+authorization: 'IMPERIAL-xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'. // Must be a string. (Default: null)
+```
 
-#### Example
+## Response
 
-When wrapping your content with `<Bleed>`, it will be slightly wider than the container
-and will overflow on both sides.
+These are the following responses you will receive.
 
-<Bleed>
-  <div style={{ border: '1px solid #888', padding: '4rem 2.5rem', textAlign: 'center' }}>
-    _There is nothing to writing. All you do is sit down at a typewriter and **bleed**._
+#### Status code 400
 
-    — Ernest Hemingway
-  </div>
-</Bleed>
+When you don't provide valid code in the request
 
-It providers a better reading experience when you want to present some graphical information, which normally
-looks nicer in a larger size.
+```json
+success: false,
+message: "You need to give text in the `code` parameter!"
+```
 
-For example you can put text, image, video or any component inside:
+When you don't provide valid settings types in the request
 
+```json
+success: false,
+message: "Some settings are not correct types! Please refer to our docs at https://docs.imperialb.in/"
+```
 
-You can even make it full-bleed using `<Bleed full>`:
+### Status code 429
 
-<Bleed full>
-  ![Landscape](https://source.unsplash.com/eaxwP9J_V6s/1600x398)
-</Bleed>
+You are being ratelimited, chill out for around 20 seconds.
 
-#### Usage
+### Status code 500
 
-```mdx
-import Bleed from 'nextra-theme-docs/bleed'
+There was an internal server error getting your user
 
-<Bleed>
-  Hey, I can use **Markdown** syntax here.
-</Bleed>
+```json
+success: false,
+message: "There was an error whilst getting your account! Please contact an admin!"
+```
 
-<Bleed full>
-  ![Landscape](https://source.unsplash.com/eaxwP9J_V6s/1600x398)
-</Bleed>
+There was an internal server error whilst creating your document
 
-<Bleed full>
-  <iframe src="https://codesandbox.io/embed/swr-states-4une7"
-     width="100%"
-     height="500px"
-     title="SWR-States"
-   ></iframe>
-</Bleed>
+```json
+success: false,
+message: "An internal server error occurred, please contact an admin or developer"
 ```
