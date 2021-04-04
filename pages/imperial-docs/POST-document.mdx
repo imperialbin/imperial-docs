@@ -45,6 +45,28 @@ authorization: 'IMPERIAL-xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'. // Must be a str
 
 These are the following responses you will receive.
 
+#### Status code 200
+
+Your request was successful
+
+```json
+success: true,
+rawLink: `https://imperialb.in/r/${URL}`,
+formattedLink: `https://imperialb.in/p/${URL}`,
+documentInfo: {
+  documentId: "xxxxxxxx", // string
+  language: "xxxxxxxxxx", // string
+  imageEmbed: xxxxx, // boolean
+  instantDelete: xxxxx, // boolean
+  dateCreated: xxxxx, // number
+  deleteDate: xxxxx, // number
+  allowedEditors: ["xxxxx","xxxxx"], // Array of strings
+  encrypted: xxxxx, // boolean
+  password: xxxx, // null or a string
+  views: xx, // number
+},
+```
+
 #### Status code 400
 
 When you don't provide valid code in the request
