@@ -59,9 +59,9 @@ export default {
     </>
   ),
   search: true,
-  prevLinks: true,
-  nextLinks: true,
+  prevLinks: false,
+  nextLinks: false,
   footer: true,
   footerEditOnGitHubLink: true,
-  footerText: <>MIT {new Date().getFullYear()} © IMPERIAL.</>,
+  footerText: <>MPL 2.0 {new Date().getFullYear()} © IMPERIAL.</>,
 }

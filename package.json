@@ -1,5 +1,5 @@
 {
-  "name": "nextra",
+  "name": "imperial-docs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,8 +8,8 @@
     "start": "next start",
     "build": "next build"
   },
-  "author": "Shu Ding",
-  "license": "MIT",
+  "author": "Shu Ding, devlooskie",
+  "license": "MPL 2.0",
   "dependencies": {
     "next": "^10.0.8-canary.9",
     "nextra": "^0.4.1",
