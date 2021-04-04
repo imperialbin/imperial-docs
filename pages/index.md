@@ -1,7 +1,32 @@
-# Nextra
+# IMPERIAL documentation
 
-**Nextra** is a [Next.js](https://nextjs.org) based static site generator. 0 lines of code needed.  
+## ABOUT IMPERIAL
 
-It supports Markdown with React components ([MDX](/mdx)), automatically generated [sidebar and anchor links](/docs/anchors), file-system based routing, built-in syntax highlighting, i18n and more.
+IMPERIAL is a code/text storing site where you can share, edit, or encrypt documents with integrations such as Discord and GitHub Gists.
 
-![](/demo.png)
+## PROJECTS MADE BY IMPERIAL
+
+We have two different types of project categories. Community projects and official projects. Here are the lists for official projects
+
+- imperial
+- imperial-vsc
+- imperial-bot
+- imperial-docs
+- imperial-hiven
+
+All these in which can be modified by the community as everything we do in IMPERIAL is OSS. (Open Sourced Software)
+
+The following list is community projects and their owners/developers
+
+- imperial-node (Maintained and developed by pxseu)
+- imperial-py (Maintained and developed by Hexiro)
+- imperial-deno (Not yet released)
+- imperial-rust (Not yet released)
+
+## TERMS OF SERVICE
+
+The Terms of Service for IMPERIAL can be found [here](https://imperialb.in/terms)
+
+## PRIVACY POLICY
+
+The Privacy Policy for IMPERIAL can be found [here](https://imperialb.in/privacy)
