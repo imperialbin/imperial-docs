@@ -1,78 +1,126 @@
-# Get Started
+# PATCH /document
 
-Create your own Nextra site and deploy to Vercel:
+Edit a document by IMPERIAL's API
 
-[![](https://vercel.com/button)](https://vercel.com/import/git?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra&c=1)
-
-Vercel will create the Nextra repository and deploy the site for you with just a few clicks.  
-Once done, every change in the repository will be deployed automatically.
-
----
-
-### Configurations
-
-1. Install Next.js and React: `yarn add next react react-dom`
-
-2. Install Nextra and the docs theme: `yarn add nextra nextra-theme-docs`
-
-3. Create the following Next.js config and theme config under the root directory:
-
-```jsx
-// next.config.js
-const withNextra = require('nextra')('nextra-theme-docs', './theme.config.js')
-module.exports = withNextra()
-```
-
-```jsx
-// theme.config.js
-export default {
-  repository: 'https://github.com/shuding/nextra', // project repo
-  docsRepository: 'https://github.com/shuding/nextra', // docs repo
-  branch: 'master', // branch of docs
-  path: '/', // path of docs
-  titleSuffix: ' – Nextra',
-  nextLinks: true,
-  prevLinks: true,
-  search: true,
-  customSearch: null, // customizable, you can use algolia for example
-  darkMode: true,
-  footer: true,
-  footerText: 'MIT 2020 © Shu Ding.',
-  footerEditOnGitHubLink: true, // will link to the docs repo
-  logo: <>
-    <svg>...</svg>
-    <span>Next.js Static Site Generator</span>
-  </>,
-  head: <>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Nextra: the next docs builder" />
-    <meta name="og:title" content="Nextra: the next docs builder" />
-  </>
-}
-```
-
-4. Create `pages/_app.js` and include the theme stylesheet:
-
-```jsx
-import 'nextra-theme-docs/style.css'
-
-export default function Nextra({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
-```
-
-5. You are good to go! 
-
----
+## The request
 
 import Callout from 'nextra-theme-docs/callout'
 
-<Callout>
-Any `.md` or `.mdx` file will turn into a doc page and be displayed in sidebar. You can also create a `meta.json` file to customize the page order and title.
+#### Something to keep in mind
 
-Check the source code: https://github.com/shuding/nextra for more information.
+<Callout>You only get 30 requests every 20 seconds.</Callout>
+<Callout>Encrypted documents are NOT editable.</Callout>
+
+<Callout>
+  If your request isn't authorized, it WILL get REJECTED.
 </Callout>
 
-<Callout>
-You can also use [`<style jsx>`](https://nextjs.org/docs/basic-features/built-in-css-support#css-in-js) to style elements inside `theme.config.js`.
-</Callout>
+#### The body
+
+```json
+documentId: "" // Must be a string and is a requirement whilst requesting
+
+code: "" // Must be a string and is a requirement whilst requesting
+
+// You can also use 'newCode' instead of 'code' if you'd like
+```
+
+#### Headers
+
+```json
+authorization: 'IMPERIAL-xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'. // Must be a string. (Default: null)
+```
+
+## Response
+
+These are the following responses you will receive.
+
+#### Status code 200
+
+Your request was successful
+
+```json
+success: true,
+message: "Successfully edit the document!",
+rawLink: `https://imperialb.in/r/:documentId,
+formattedLink: `https://imperialb.in/p/:documentId`,
+documentInfo: {
+  documentId: "xxxxxxxx", // string
+  language: "xxxxxx", // string
+  imageEmbed: xxxx, // boolean
+  instantDelete: xxxx, // boolean
+  dateCreated: xxxx, // number
+  deleteDate: xxxx, // number
+  allowedEditors: ["xxxx", "xxxx"] // array of strings,
+  encrypted: xxxx, // boolean,
+  views: xxx, // number,
+},
+```
+
+#### Status code 400
+
+When you don't provide a valid document id in the request
+
+```json
+success: false,
+message: "You must include a valid document id!"
+```
+
+When you don't provide valid code in the request
+
+```json
+success: false,
+message: "You must give valid code to replace the old code with!"
+```
+
+### Status code 401
+
+When your request isn't authorized
+
+```json
+success: false,
+message: "Your authorization is invalid"
+```
+
+When you try editing an encrypted document
+
+```json
+success: false,
+message: "You cannot edit encrypted documents right now, please try again later"
+```
+
+When you don't have access to edit a document
+
+```json
+success: false,
+message: "Sorry! You aren't allowed to edit this document."
+```
+
+### Status code 404
+
+When we can't find the document you provided
+
+```json
+success: false,
+message: "We couldn't find the document you're trying to edit!"
+```
+
+### Status code 429
+
+You are being ratelimited, chill out for around 20 seconds.
+
+### Status code 500
+
+There was an internal server error getting the document
+
+```json
+success: false,
+message: "An internal server occurred whilst getting document!"
+```
+
+There was an internal server error whilst getting your user
+
+```json
+success: false,
+message: "An internal server occurred whilst getting user"
+```
