@@ -1,3 +1,7 @@
 {
-  "code-highlighting": "Code Highlighting"
+  "create-document": "Create Document",
+  "get-document": "Get Document",
+  "edit-document": "Edit Document",
+  "delete-document": "Delete Document",
+  "purge-documents": "Purge Documents"
 }

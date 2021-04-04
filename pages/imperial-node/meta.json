@@ -1,5 +1,7 @@
 {
-  "mdx": "Markdown and React",
-  "ssg": "SSG Support",
-  "i18n": "I18n"
+  "create-document": "Create Document",
+  "get-document": "Get Document",
+  "edit-document": "Edit Document",
+  "delete-document": "Delete Document",
+  "purge-documents": "Purge Documents"
 }
