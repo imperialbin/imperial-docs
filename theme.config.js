@@ -63,5 +63,5 @@ export default {
   nextLinks: false,
   footer: true,
   footerEditOnGitHubLink: true,
-  footerText: <>MPL 2.0 {new Date().getFullYear()} © IMPERIAL.</>,
+  footerText: <>MPL-2.0 {new Date().getFullYear()} © IMPERIAL.</>,
 }

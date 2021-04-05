@@ -9,7 +9,7 @@
     "build": "next build"
   },
   "author": "Shu Ding, devlooskie",
-  "license": "MPL 2.0",
+  "license": "MPL-2.0",
   "dependencies": {
     "next": "^10.0.8-canary.9",
     "nextra": "^0.4.1",
