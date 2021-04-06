@@ -1,8 +1,4 @@
 {
-  "installation": "Installation",
-  "create-document": "Create Document",
-  "get-document": "Get Document",
-  "edit-document": "Edit Document",
-  "delete-document": "Delete Document",
-  "purge-documents": "Purge documents"
+  "welcome": "Welcome",
+  "installation": "Installation"
 }
