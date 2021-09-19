@@ -1,0 +1,6 @@
+{
+  "get": "GET Document",
+  "post": "POST Document",
+  "patch": "PATCH Document",
+  "delete": "DELETE Document"
+}

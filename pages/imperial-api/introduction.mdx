@@ -1,0 +1,31 @@
+# Requests
+
+URL
+`GET https://api.imperialb.in/`
+
+import Callout from "nextra-theme-docs/callout";
+
+#### Something to keep in mind
+
+<Callout>
+  There are some requests you can not do with an API token! (for security
+  reasons)
+</Callout>
+
+#### `GET /` Response
+
+```json
+success: true
+message: "You have reached IMPERIAL's API!",
+documentation: "https://docs.imperialb.in/",
+availableVersions: [
+  "/v1"
+],
+```
+
+#### Headers
+
+```json
+Content-Type: "application/json",
+Authorization: 'IMPERIAL-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' // Must be a string. (Default: null)
+```

@@ -1,0 +1,36 @@
+# Requests
+
+URL
+`POST https://api.imperialb.in/v1/auth/signup`
+
+import Callout from "nextra-theme-docs/callout";
+
+#### Something to keep in mind
+
+<Callout>You only get 80 requests every minute.</Callout>
+
+<Callout>
+  If your request isn't authorized, it will ignore ALL settings and do the bare
+  minimum.
+</Callout>
+
+<Callout>
+  There are some requests you can not do with an API token! (for security
+  reasons)
+</Callout>
+
+#### `GET /` Response
+
+```json
+success: true,
+message: "Welcome to IMPERIAL's API!",
+version: 1,
+documentation: "https://docs.imperialb.in/"
+```
+
+#### Headers
+
+```json
+Content-Type: "application/json",
+Authorization: 'IMPERIAL-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' // Must be a string. (Default: null)
+```

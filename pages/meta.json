@@ -1,8 +1,9 @@
 {
   "index": "Introduction",
-  "imperial-docs": "IMPERIAL API",
-  "imperial-node": "IMPERIAL-node",
-  "imperial-py": "IMPERIAL-py API",
-  "imperial-vsc": "IMPERIAL-vsc API",
-  "imperial-bot": "IMPERIAL-bot API"
+  "imperial-api": "IMPERIAL API",
+  "imperial-js": "IMPERIAL.js",
+  "imperial-py": "IMPERIAL.py",
+  "imperial-rs": "IMPERIAL.rs",
+  "imperial-vsc": "IMPERIAL VSC",
+  "imperial-bot": "IMPERIAL Bot"
 }

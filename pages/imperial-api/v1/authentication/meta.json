@@ -1,0 +1,7 @@
+{
+  "postLogin": "POST Login",
+  "postSignup": "POST Signup",
+  "postRequestResetPassword": "POST Request Reset Password",
+  "postResetPassword": "POST Reset Password",
+  "deleteLogout": "DELETE Logout"
+}

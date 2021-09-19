@@ -1,0 +1,10 @@
+{
+  "getMe": "GET @me",
+  "getMeRecentDocuments": "GET @me Recent Documents",
+  "postAPIToken": "POST @me API-Token",
+  "patchMe": "PATCH @me",
+  "patchIcon": "PATCH @me Icon",
+  "patchEmail": "PATCH @me Email",
+  "deleteMe": "DELETE @me",
+  "getUser": "GET user"
+}
