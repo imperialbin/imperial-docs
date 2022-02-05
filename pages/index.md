@@ -20,6 +20,7 @@ The following list is community projects and their owners/developers
 
 - imperial-node (Maintained and developed by pxseu)
 - imperial-py (Maintained and developed by Hexiro)
+- [imperial.vim](https://github.com/lexisother/imperial.vim) (Maintained and developed by lexisother)
 - imperial-deno (Not yet released)
 - imperial-rust (Not yet released)
 
